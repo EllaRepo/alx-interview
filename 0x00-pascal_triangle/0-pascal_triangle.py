@@ -1,3 +1,4 @@
+#!/usr/bin/python3
 """This module define a method that returns lists of pascals triangle
 """
 
@@ -6,6 +7,8 @@ def pascal_triangle(n):
     """Function that returns pascals triangle
     Args:
         n(number) - the number
+    Returns:
+        array: array of array of numbers
     """
     triangle = [[1]]
     for i in range(1, n):
