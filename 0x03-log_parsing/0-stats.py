@@ -32,3 +32,4 @@ if __name__ == "__main__":
     except KeyboardInterrupt:
         print_status(s_list, tot_sz)
         raise
+    print_status(s_list, tot_sz)
