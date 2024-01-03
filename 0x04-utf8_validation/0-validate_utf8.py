@@ -24,9 +24,7 @@ def validUTF8(data):
     def isValidSequence(bytes):
         """Check if the sequence of bytes is a valid UTF-8 character
         """
-        if len(bytes) == 1:
-            return True
-        if len(bytes) > 4:
+        if len(bytes) == 1 or len(bytes) > 4:
             return False
         leadingOnes = countLeadingOnes(bytes[0])
         if leadingOnes < 2 or leadingOnes > 4:
