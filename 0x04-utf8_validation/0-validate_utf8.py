@@ -27,7 +27,7 @@ def validUTF8(data):
         if len(bytes) == 1 or len(bytes) > 4:
             return False
         leadingOnes = countLeadingOnes(bytes[0])
-        if leadingOnes < 2 or leadingOnes > 4:
+        if leadingOnes < 2 or leadingOnes > 4 or leadingOnes != len(bytes):
             return False
         for i in range(1, len(bytes)):
             if countLeadingOnes(bytes[i]) != 1:
