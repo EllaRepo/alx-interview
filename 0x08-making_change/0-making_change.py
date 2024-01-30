@@ -22,9 +22,16 @@ def makeChange(coins, total):
         return 1
     except ValueError:
         pass
-    dp = [float('inf')] * (total + 1)
-    dp[0] = 0
+
+    coins.sort(reverse=True)
+    coin_count = 0
     for coin in coins:
-        for i in range(coin, total + 1):
-            dp[i] = min(dp[i], dp[i - coin] + 1)
-    return dp[total] if dp[total] != float('inf') else -1
+        if total == 0:
+            break
+        if coin <= total:
+            count = total // coin
+            coin_count += count
+            total -= count * coin
+    if total > 0:
+        return -1
+    return coin_count
