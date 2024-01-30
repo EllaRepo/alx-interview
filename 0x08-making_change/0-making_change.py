@@ -13,8 +13,15 @@ def makeChange(coins, total):
         0 - if total is 0 or less,
         -1 - If total cannot be met by any number of coins
     """
-    if total < 0:
+    if total <= 0:
         return 0
+    if coins == [] or coins is None:
+        return -1
+    try:
+        n = coins.index(total)
+        return 1
+    except ValueError:
+        pass
     dp = [float('inf')] * (total + 1)
     dp[0] = 0
     for coin in coins:
