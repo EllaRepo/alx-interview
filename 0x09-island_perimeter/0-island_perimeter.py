@@ -16,14 +16,15 @@ def island_perimeter(grid):
     if grid is None or grid == []:
         return perimeter
 
-    h = len(grid)
-    w = len(grid[0])
+    rows, cols = len(grid), len(grid[0])
 
-    for i in range(1, h - 1):
-        for j in range(1, w - 1):
-            if grid[i][j]:
-                if grid[i - 1][j] == 0:
-                    perimeter += 2
-                if grid[i][j - 1] == 0:
-                    perimeter += 2
+    for r in range(rows):
+        for c in range(cols):
+            if grid[r][c] == 1:
+                perimeter += 4
+                if r > 0 and grid[r - 1][c] == 1:
+                    perimeter -= 2
+                if c > 0 and grid[r][c - 1] == 1:
+                    perimeter -= 2
+
     return perimeter
