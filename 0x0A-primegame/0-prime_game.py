@@ -10,11 +10,14 @@ def get_primes_len(n):
     Returns:
         The length of prime numbers
     """
-    primes = []
-    for num in range(2, n+1):
-        if all(num % i != 0 for i in range(2, int(num**0.5) + 1)):
-            primes.append(num)
-    return len(primes)
+    prime = []
+    sieve = [True] * (n + 1)
+    for p in range(2, n + 1):
+        if (sieve[p]):
+            prime.append(p)
+            for i in range(p, n + 1, p):
+                sieve[i] = False
+    return len(prime)
 
 
 def isWinner(x, nums):
