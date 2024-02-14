@@ -31,7 +31,7 @@ def isWinner(x, nums):
     numBenWon = 0
     numMariaWon = 0
 
-    for i in range(len(nums)):
+    for i in range(x):
         if get_primes_len(nums[i]) % 2 == 0:
             numBenWon += 1
         else:
